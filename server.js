@@ -19,6 +19,15 @@ app.get("/notes", function (req, res) {
   res.sendFile(__dirname + "/public/notes.html");
 });
 
+app.get("/api/notes", async function (req, res){
+    try {
+        const data = await fs.readFile("./db/db.json", "utf8");
+        res.json(JSON.parse(data));
+    } catch (err) {
+        res.status(500).end("failed to reach /api/notes")
+    }
+});
+
 app.listen(PORT, () =>
   console.log(`App listening at http://localhost:${PORT}`)
 );
