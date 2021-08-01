@@ -1,6 +1,6 @@
 const fs = require("fs/promises");
 const express = require("express");
-const routes = require("")
+const routes = require("");
 
 const app = express();
 
@@ -12,9 +12,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 app.get("/", function (req, res) {
-    res.sendFile(__dirname + "/public/index.html");
-  });
+  res.sendFile(__dirname + "/public/index.html");
+});
 
-app.listen(PORT, () => 
-    console.log((`App listening at http://localhost:${PORT}`))
+app.get("/notes", function (req, res) {
+  res.sendFile(__dirname + "/public/notes.html");
+});
+
+app.listen(PORT, () =>
+  console.log(`App listening at http://localhost:${PORT}`)
 );
