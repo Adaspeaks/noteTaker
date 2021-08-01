@@ -1,6 +1,6 @@
 const fs = require("fs/promises");
 const express = require("express");
-const routes = require("");
+const uuid = require("uuid");
 
 const app = express();
 
@@ -27,6 +27,14 @@ app.get("/api/notes", async function (req, res){
         res.status(500).end("failed to reach /api/notes")
     }
 });
+
+app.post("/api/notes", async function (req, res){
+    try {
+        
+    } catch (err) {
+        
+    }
+})
 
 app.listen(PORT, () =>
   console.log(`App listening at http://localhost:${PORT}`)
